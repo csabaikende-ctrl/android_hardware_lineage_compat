@@ -654,3 +654,26 @@ cc_prebuilt_library_shared {
     },
     compile_multilib: "both",
 }
+
+// Samsung Exynos 2100 vendor blobs (libsec-ril), from LineageOS hardware/lineage/compat
+cc_prebuilt_library_shared {
+    name: "libprotobuf-cpp-full-21.12-vendorcompat",
+    stem: "libprotobuf-cpp-full-21.12",
+    vendor: true,
+    strip: {
+        none: true,
+    },
+    shared_libs: [
+        "libc++",
+        "liblog",
+        "libz",
+    ],
+    target: {
+        android_arm: {
+            srcs: ["libprotobuf/arm/libprotobuf-cpp-full-21.12.so"],
+        },
+        android_arm64: {
+            srcs: ["libprotobuf/arm64/libprotobuf-cpp-full-21.12.so"],
+        },
+    },
+}
